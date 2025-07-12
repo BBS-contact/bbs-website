@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spread the Word | Big Begins Small (BBS)</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Help Spread the BBS Movement</h1>
+    <p>Everything big begins with something small — even a single share.</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>Why Share?</h2>
+      <p>Every time someone hears about BBS, a new spark is lit. You can help others discover meaning, action, and change by simply sharing this idea.</p>
+    </section>
+
+    <section>
+      <h2>Tools to Share</h2>
+      <ul>
+        <li><a href="https://bbs-world.org/images/poster.jpg" download>📥 Download Poster</a></li>
+        <li><a href="#" onclick="copyText()">📋 Copy Intro Text</a></li>
+        <li><a href="https://twitter.com/intent/tweet?text=Big%20Begins%20Small%20-%20Join%20the%20movement%20for%20change!%20bbs-world.org" target="_blank">🐦 Share on Twitter</a></li>
+        <li><a href="https://facebook.com/sharer/sharer.php?u=https://bbs-world.org" target="_blank">📘 Share on Facebook</a></li>
+        <li><a href="join.html">Become a BBS Ambassador</a></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>"I joined because..."</h2>
+      <p>Express your reason for joining and inspire others. Use your voice, your art, your vision.</p>
+    </section>
+
+    <section class="cta">
+      <h2>Get Involved</h2>
+      <p>Do you want to help spread BBS in your country, community, or online?</p>
+      <a href="join.html" class="button">Join the Movement</a>
+      <a href="support.html" class="button">Support the Project</a>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Big Begins Small (BBS). All rights reserved.</p>
+  </footer>
+
+  <script>
+    function copyText() {
+      const text = "Big Begins Small is a movement for education, justice, creativity and change. Join us: https://bbs-world.org";
+      navigator.clipboard.writeText(text).then(() => {
+        alert("Intro text copied to clipboard!");
+      });
+    }
+  </script>
+</body>
+</html>
