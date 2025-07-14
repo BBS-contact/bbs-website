@@ -1,66 +1,83 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Приєднатися — BBS</title>
+  <title>Join — Big Begins Small (BBS)</title>
   <link rel="stylesheet" href="style.css" />
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
   <header>
-    <h1>Стань учасником змін</h1>
-    <p>Ми віримо, що кожна людина має унікальні дари, бачення та потенціал. Тут ти потрібен.</p>
+    <h1>Join the Movement</h1>
+    <p>We believe every person has unique gifts, vision, and potential. You are needed here.</p>
   </header>
 
   <main>
     <section class="cta" id="join-form">
-      <h2>Форма участі</h2>
+      <h2>Participation Form</h2>
       <form id="bbsForm">
-        <label for="fullname">Ім’я та прізвище:</label><br>
+        <label for="fullname">Full Name:</label><br>
         <input type="text" id="fullname" name="fullname" required><br><br>
 
-        <label for="email">Email (необов’язково):</label><br>
+        <label for="email">Email (optional):</label><br>
         <input type="email" id="email" name="email"><br><br>
 
-        <label for="direction">Напрямок, який тобі близький:</label><br>
+        <label for="direction">Which direction is close to your heart?</label><br>
         <select id="direction" name="direction" required>
-          <option value="">-- Обери напрямок --</option>
-          <option value="education">Освіта</option>
-          <option value="health">Медицина</option>
-          <option value="democracy">Демократія</option>
-          <option value="law">Право</option>
-          <option value="finance">Фінанси</option>
-          <option value="art">Мистецтво</option>
-          <option value="other">Інше</option>
+          <option value="">-- Select a Direction --</option>
+          <option value="education">Education</option>
+          <option value="health">Health</option>
+          <option value="democracy">Democracy</option>
+          <option value="law">Law</option>
+          <option value="finance">Finance</option>
+          <option value="art">Art</option>
+          <option value="medicine">Medicine</option>
+          <option value="ecology">Ecology</option>
+          <option value="psychology">Psychology / Mental Health</option>
+          <option value="civilsociety">Civil Society / Activism</option>
+          <option value="technology">Technology & Innovation</option>
+          <option value="equality">Social Support / Equality</option>
+          <option value="agriculture">Agriculture / Food Security</option>
+          <option value="science">Science / Research</option>
         </select><br><br>
 
-        <label for="role">Як саме ти хочеш долучитися?</label><br>
+        <label for="role">How would you like to contribute?</label><br>
         <select id="role" name="role" required>
-          <option value="">-- Обери роль --</option>
-          <option value="idea_author">Автор ідей</option>
-          <option value="researcher">Аналітик / Дослідник</option>
-          <option value="developer">Розробник / Творець</option>
-          <option value="artist">Митець / Творчість</option>
-          <option value="communicator">Комунікатор / Соцмережі</option>
-          <option value="supporter">Голос і серце</option>
+          <option value="">-- Select a Role --</option>
+          <option value="idea_author">Idea Author</option>
+          <option value="researcher">Analyst / Researcher</option>
+          <option value="developer">Developer / Creator</option>
+          <option value="artist">Artist / Creativity</option>
+          <option value="communicator">Communicator / Social Media</option>
+          <option value="supporter">Voice & Heart</option>
         </select><br><br>
 
-        <label for="message">Кілька слів про тебе або твоє бачення (необов’язково):</label><br>
+        <label for="message">A few words about you or your vision (optional):</label><br>
         <textarea id="message" name="message" rows="4" cols="50"></textarea><br><br>
 
-        <button type="submit">Надіслати</button>
+        <!-- Google reCAPTCHA -->
+        <div class="g-recaptcha" data-sitekey="6LcMaYIrAAAAALwaTUDFyujG6za2Fo_8VWPk1JnZ"></div><br>
+
+        <button type="submit">Submit</button>
       </form>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2025 Big Begins Small (BBS). Усі права захищено.</p>
-    <p><a href="index.html">Повернутися на головну</a></p>
+    <p>&copy; 2025 Big Begins Small (BBS). All rights reserved.</p>
+    <p><a href="index.html">Back to Home</a></p>
   </footer>
 
   <script>
     document.getElementById("bbsForm").addEventListener("submit", function (e) {
       e.preventDefault();
+
+      // Check if reCAPTCHA is completed
+      if (grecaptcha.getResponse() === "") {
+        alert("Please complete the reCAPTCHA.");
+        return;
+      }
 
       const data = {
         fullname: document.getElementById("fullname").value.trim(),
@@ -70,16 +87,14 @@
         message: document.getElementById("message").value.trim(),
       };
 
-      // Зберегти у localStorage
       let members = JSON.parse(localStorage.getItem("bbsMembers")) || [];
       members.push(data);
       localStorage.setItem("bbsMembers", JSON.stringify(members));
 
-      // Очистити форму
       document.getElementById("bbsForm").reset();
+      grecaptcha.reset();
 
-      // Повідомлення
-      alert("Дякуємо за долучення! Вашу участь збережено локально.");
+      alert("Thank you for joining! Your participation has been saved locally.");
     });
   </script>
 </body>
