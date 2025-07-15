@@ -91,25 +91,32 @@
       members.push(data);
       localStorage.setItem("bbsMembers", JSON.stringify(members));
 
-     <script>
-  document.getElementById("bbsForm").addEventListener("submit", function (e) {
-    e.preventDefault();
+      <script>
+    document.getElementById("bbsForm").addEventListener("submit", function (e) {
+      e.preventDefault();
 
-    const scriptURL = "https://script.google.com/macros/s/AKfycbyrCSG-CuyiPkKIEc8ixUti6jSaAmOcg40jb-_90d6NhVyTDrNsstsrlCUDRLLYdHx5/exec";
+      // Check if reCAPTCHA is completed
+      if (grecaptcha.getResponse() === "") {
+        alert("Please complete the reCAPTCHA.");
+        return;
+      }
 
-    const form = document.getElementById("bbsForm");
-    const formData = new FormData(form);
+      const scriptURL = "https://script.google.com/macros/s/AKfycbyrCSG-CuyiPkKIEc8ixUti6jSaAmOcg40jb-_90d6NhVyTDrNsstsrlCUDRLLYdHx5/exec";
+      const form = document.getElementById("bbsForm");
+      const formData = new FormData(form);
 
-    fetch(scriptURL, { method: "POST", body: formData })
-      .then(response => {
-        alert("Дякуємо! Дані успішно надіслані.");
-        form.reset();
-      })
-      .catch(error => {
-        alert("Сталася помилка. Спробуй ще раз.");
-        console.error("Error!", error.message);
-      });
-  });
-</script>
+      fetch(scriptURL, { method: "POST", body: formData })
+        .then(response => {
+          alert("Thank you! Your data has been successfully submitted.");
+          form.reset();
+          grecaptcha.reset(); // Reset reCAPTCHA after successful submit
+        })
+        .catch(error => {
+          alert("An error occurred. Please try again.");
+          console.error("Error!", error.message);
+        });
+    });
+  </script>
 </body>
 </html>
+
