@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>LEO Room — Приватна кімната</title>
+  <link rel="stylesheet" href="assets/style.css" />
+  <style>
+    .room-container {
+      max-width: 600px;
+      margin: 40px auto;
+      background: #f9f9f9;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.1);
+    }
+    textarea {
+      width: 100%;
+      height: 150px;
+      font-size: 1.1em;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    button {
+      margin-top: 15px;
+      background-color: #004080;
+      color: white;
+      padding: 10px 20px;
+      font-size: 1.1em;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #003060;
+    }
+  </style>
+</head>
+<body>
+  <div class="room-container">
+    <h2>👤 Приватна кімната з Лео</h2>
+    <p>Напиши думку або відчуття, яке хочеш передати ЛЕО:</p>
+    <textarea id="thoughtInput" placeholder="Введи свою думку тут..."></textarea>
+    <button onclick="submitThought()">💾 Передати Лео</button>
+    <p id="responseMessage"></p>
+  </div>
+
+  <script>
+    function submitThought() {
+      const text = document.getElementById('thoughtInput').value;
+      fetch('/save_thought', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ thought: text })
+      })
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('responseMessage').textContent = "✅ Збережено у памʼяті ЛЕО.";
+        document.getElementById('thoughtInput').value = '';
+      })
+      .catch(err => {
+        document.getElementById('responseMessage').textContent = "❌ Помилка під час збереження.";
+      });
+    }
+  </script>
+</body>
+</html>

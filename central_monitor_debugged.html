@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>🖥️ Центральна Панель — SOS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+    body {
+      background: #111;
+      color: white;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+    h1 {
+      font-size: 2.5em;
+      text-align: center;
+      margin: 20px 0;
+    }
+    .top-panels {
+      display: flex;
+      justify-content: space-between;
+      height: 55vh;
+    }
+    .panel {
+      width: 50%;
+      padding: 10px;
+      box-sizing: border-box;
+      overflow-y: auto;
+    }
+    .section h2 {
+      color: #00ffff;
+      text-align: center;
+    }
+    .alert-box {
+      background: #222;
+      border: 2px solid #444;
+      padding: 15px;
+      margin: 10px auto;
+      border-radius: 8px;
+      box-shadow: 0 0 10px #444;
+    }
+    .map {
+      width: 100%;
+      height: 220px;
+      margin-top: 10px;
+    }
+    .bottom-panel {
+      height: 42vh;
+      overflow-y: auto;
+      padding: 10px;
+    }
+    #fullscreen-btn {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      padding: 10px 18px;
+      background: #00ffff;
+      color: black;
+      border: none;
+      font-size: 1em;
+      border-radius: 8px;
+      cursor: pointer;
+      z-index: 999;
+    }
+  </style>
+</head>
+
+<body onclick="enableSoundOnce()">
+  <button id="fullscreen-btn" onclick="toggleFullscreen(event)">🖥️ Повноекранний режим</button>
+  <audio id="siren" src="alert.mp3" preload="auto" loop></audio>
+
+  <h1>🖥️ Центральна Диспетчерська Панель</h1>
+
+  <div class="top-panels">
+    <div class="panel" id="ambulance-panel">
+      <div class="section">
+        <h2>🚑 Швидка допомога</h2>
+        <div id="ambulance-alerts"></div>
+      </div>
+    </div>
+    <div class="panel" id="police-panel">
+      <div class="section">
+        <h2>🚓 Поліція</h2>
+        <div id="police-alerts"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom-panel" id="family-panel">
+    <div class="section">
+      <h2>👪 Повідомлення Родині</h2>
+      <div id="family-alerts"></div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    let audioEnabled = false;
+    const siren = document.getElementById("siren");
+    let lastCounts = { police: 0, ambulance: 0, family: 0 };
+
+    function enableSoundOnce() {
+      if (!audioEnabled) {
+        siren.play().then(() => {
+          audioEnabled = true;
+        }).catch(() => {});
+      }
+    }
+
+    function toggleFullscreen(e) {
+      e.stopPropagation();
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen();
+      } else {
+        document.exitFullscreen();
+      }
+    }
+
+    function displayEntries(data, containerId, type) {
+      const container = document.getElementById(containerId);
+      container.innerHTML = "";
+
+      data.reverse().forEach((entry, index) => {
+        const div = document.createElement("div");
+        div.className = "alert-box";
+
+        let content = `<strong>🕒 ${entry.timestamp}</strong><br/>
+                       👤 Імʼя: ${entry.name}<br/>`;
+
+        if (type === "police") {
+          content += `⚠️ Загроза: ${entry.threat}<br/>`;
+        }
+        if (type === "ambulance") {
+          content += `💉 Медична інфо: ${entry.medical}<br/>`;
+        }
+
+        content += `📍 Локація: ${entry.location}<br/>`;
+
+        if (entry.family_contacts) {
+          content += `📞 Контакти родичів:<br/><ul>${entry.family_contacts.map(p => `<li>${p}</li>`).join("")}</ul><br/>`;
+        }
+
+        content += `<div id="map-${type}-${index}" class="map"></div>`;
+        div.innerHTML = content;
+        container.appendChild(div);
+
+        const [lat, lon] = entry.location.split(',').map(x => parseFloat(x.trim()));
+        const map = L.map(`map-${type}-${index}`).setView([lat, lon], 14);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: 'Map data © OpenStreetMap contributors'
+        }).addTo(map);
+        L.marker([lat, lon]).addTo(map).bindPopup(`${entry.name}`).openPopup();
+      });
+    }
+
+    async function fetchAndCheck(url, containerId, type) {
+      const response = await fetch(url);
+      const data = await response.json();
+
+      if (data.length > lastCounts[type] && audioEnabled) {
+        siren.play().catch(() => {});
+      }
+      lastCounts[type] = data.length;
+
+      displayEntries(data, containerId, type);
+    }
+
+    function refreshAll() {
+      fetchAndCheck('http://localhost:5000/logs/ambulance', 'ambulance-alerts', 'ambulance');
+      fetchAndCheck('http://localhost:5000/logs/police', 'police-alerts', 'police');
+      fetchAndCheck('http://localhost:5000/logs/family', 'family-alerts', 'family');
+    }
+
+    refreshAll();
+    setInterval(refreshAll, 10000);
+  </script>
+</body>
+</html>

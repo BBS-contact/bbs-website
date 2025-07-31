@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SOS Admin Registration</title>
+  <style>
+    body {
+      background-color: #f7f7f7;
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: auto;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    input, textarea, select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+    button {
+      margin-top: 20px;
+      padding: 12px;
+      font-size: 16px;
+      width: 100%;
+      background-color: green;
+      color: white;
+      border: none;
+      border-radius: 6px;
+    }
+    #status {
+      margin-top: 15px;
+      text-align: center;
+      font-weight: bold;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>User Registration for SOS</h1>
+
+  <label>Full Name:</label>
+  <input type="text" id="name" placeholder="John Doe" required>
+
+  <label>Date of Birth:</label>
+  <input type="date" id="dob" required>
+
+  <label>Gender:</label>
+  <select id="gender">
+    <option value="">Select</option>
+    <option>Male</option>
+    <option>Female</option>
+    <option>Other</option>
+  </select>
+
+  <label>Type of Emergency (Police):</label>
+  <input type="text" id="threat" placeholder="e.g., Domestic violence, Theft">
+
+  <label>Medical Information (Ambulance):</label>
+  <textarea id="medical" placeholder="e.g., asthma, diabetes, medication..."></textarea>
+
+  <label>Family Contact 1 - Name:</label>
+  <input type="text" id="family1_name" placeholder="e.g., Mother">
+  <label>Family Contact 1 - Phone:</label>
+  <input type="text" id="family1_phone" placeholder="+48123456789">
+
+  <label>Family Contact 2 - Name:</label>
+  <input type="text" id="family2_name" placeholder="e.g., Brother">
+  <label>Family Contact 2 - Phone:</label>
+  <input type="text" id="family2_phone" placeholder="+48123456780">
+
+  <label>Family Contact 3 - Name:</label>
+  <input type="text" id="family3_name" placeholder="e.g., Friend">
+  <label>Family Contact 3 - Phone:</label>
+  <input type="text" id="family3_phone" placeholder="+48123456781">
+
+  <button onclick="saveData()">Save</button>
+
+  <div id="status"></div>
+
+  <script>
+    function saveData() {
+      const data = {
+        name: document.getElementById('name').value,
+        dob: document.getElementById('dob').value,
+        gender: document.getElementById('gender').value,
+        threat: document.getElementById('threat').value,
+        medical: document.getElementById('medical').value,
+        family1: {
+          name: document.getElementById('family1_name').value,
+          phone: document.getElementById('family1_phone').value
+        },
+        family2: {
+          name: document.getElementById('family2_name').value,
+          phone: document.getElementById('family2_phone').value
+        },
+        family3: {
+          name: document.getElementById('family3_name').value,
+          phone: document.getElementById('family3_phone').value
+        }
+      };
+
+      localStorage.setItem('sosUserData', JSON.stringify(data));
+      document.getElementById('status').innerText = "✅ Data saved successfully!";
+    }
+
+    // Autofill existing data if present
+    const existing = JSON.parse(localStorage.getItem('sosUserData'));
+    if (existing) {
+      document.getElementById('name').value = existing.name || '';
+      document.getElementById('dob').value = existing.dob || '';
+      document.getElementById('gender').value = existing.gender || '';
+      document.getElementById('threat').value = existing.threat || '';
+      document.getElementById('medical').value = existing.medical || '';
+
+      if (existing.family1) {
+        document.getElementById('family1_name').value = existing.family1.name || '';
+        document.getElementById('family1_phone').value = existing.family1.phone || '';
+      }
+      if (existing.family2) {
+        document.getElementById('family2_name').value = existing.family2.name || '';
+        document.getElementById('family2_phone').value = existing.family2.phone || '';
+      }
+      if (existing.family3) {
+        document.getElementById('family3_name').value = existing.family3.name || '';
+        document.getElementById('family3_phone').value = existing.family3.phone || '';
+      }
+    }
+  </script>
+
+</body>
+</html>

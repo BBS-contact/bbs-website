@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Join — Big Begins Small (BBS)</title>
+  <link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+  <header>
+    <h1>Join the Movement</h1>
+    <p>We believe every person has unique gifts, vision, and potential. You are needed here.</p>
+    <nav>
+  <a href="../index.html" class="button">Home</a>
+  <a href="directions.html" class="button">Ideological Directions</a>
+  <a href="support.html" class="button">Support</a>
+</nav>
+  </header>
+
+  <main>
+    <section class="cta" id="join-form">
+      <h2>Participation Form</h2>
+      <form id="bbsForm">
+        <label for="fullname">Full Name:</label><br>
+        <input type="text" id="fullname" name="fullname" required><br><br>
+
+        <label for="email">Email (optional):</label><br>
+        <input type="email" id="email" name="email"><br><br>
+
+        <label for="direction">Which direction is close to your heart?</label><br>
+        <select id="direction" name="direction" required>
+          <option value="">-- Select a Direction --</option>
+          <option value="education">Education</option>
+          <option value="health">Health</option>
+          <option value="democracy">Democracy</option>
+          <option value="law">Law</option>
+          <option value="finance">Finance</option>
+          <option value="art">Art</option>
+          <option value="medicine">Medicine</option>
+          <option value="ecology">Ecology</option>
+          <option value="psychology">Psychology / Mental Health</option>
+          <option value="civilsociety">Civil Society / Activism</option>
+          <option value="technology">Technology & Innovation</option>
+          <option value="equality">Social Support / Equality</option>
+          <option value="agriculture">Agriculture / Food Security</option>
+          <option value="science">Science / Research</option>
+        </select><br><br>
+
+        <label for="role">How would you like to contribute?</label><br>
+        <select id="role" name="role" required>
+          <option value="">-- Select a Role --</option>
+          <option value="idea_author">Idea Author</option>
+          <option value="researcher">Analyst / Researcher</option>
+          <option value="developer">Developer / Creator</option>
+          <option value="artist">Artist / Creativity</option>
+          <option value="communicator">Communicator / Social Media</option>
+          <option value="supporter">Voice & Heart</option>
+        </select><br><br>
+
+        <label for="message">A few words about you or your vision (optional):</label><br>
+        <textarea id="message" name="message" rows="4" cols="50"></textarea><br><br>
+
+        <!-- Google reCAPTCHA -->
+       
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Big Begins Small (BBS). All rights reserved.</p>
+    <p><a href="index.html">Back to Home</a></p>
+  </footer>
+
+  <script>
+    document.getElementById("bbsForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      if (grecaptcha.getResponse() === "") {
+        alert("Please complete the reCAPTCHA.");
+        return;
+      }
+
+      const scriptURL = "https://script.google.com/macros/s/AKfycbyrCSG-CuyiPkKIEc8ixUti6jSaAmOcg40jb-_90d6NhVyTDrNsstsrlCUDRLLYdHx5/exec";
+      const form = document.getElementById("bbsForm");
+      const formData = new FormData(form);
+
+      fetch(scriptURL, { method: "POST", body: formData })
+        .then(response => {
+          alert("Thank you! Your submission has been received.");
+          form.reset();
+        })
+        .catch(error => {
+          alert("An error occurred. Please try again.");
+          console.error("Error!", error.message);
+        });
+<script src="../leo/engine.js"></script>
+<script>
+  document.getElementById("bbsForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    // Якщо використовується reCAPTCHA
+    if (typeof grecaptcha !== "undefined" && grecaptcha.getResponse() === "") {
+      alert("Please complete the reCAPTCHA.");
+      return;
+    }
+
+    const form = document.getElementById("bbsForm");
+    const formData = new FormData(form);
+
+    // Основна інтеграція з Google Script (залишається)
+    const scriptURL = "https://script.google.com/macros/s/AKfycbyrCSG-CuyiPkKIEc8ixUti6jSaAmOcg40jb-_90d6NhVyTDrNsstsrlCUDRLLYdHx5/exec";
+
+    fetch(scriptURL, { method: "POST", body: formData })
+      .then(response => {
+        alert("✅ Thank you! Your submission has been received.");
+        form.reset();
+      })
+      .catch(error => {
+        alert("❌ An error occurred. Please try again.");
+        console.error("Error!", error.message);
+      });
+
+    // Додатково: Зберігаємо у LEO памʼять (локальна)
+    const entry = {
+      fullname: formData.get("fullname"),
+      email: formData.get("email") || "—",
+      direction: formData.get("direction"),
+      role: formData.get("role"),
+      message: formData.get("message") || "",
+      timestamp: new Date().toISOString()
+    };
+
+    if (typeof LEO !== "undefined" && LEO.injectResponse) {
+      LEO.injectResponse(entry);
+    }
+  });
+</script>
+
+    });
+  </script>
+</body>
+</html>

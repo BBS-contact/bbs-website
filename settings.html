@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SOS Settings</title>
+  <style>
+    body {
+      background-color: #f2f2f2;
+      font-family: sans-serif;
+      margin: 0;
+      padding: 20px;
+      max-width: 600px;
+      margin: auto;
+    }
+    h1 {
+      text-align: center;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1em;
+      width: 100%;
+      background-color: green;
+      color: white;
+      border: none;
+      border-radius: 6px;
+    }
+    #status {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 1.1em;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Configure SOS Settings</h1>
+
+  <label>Full Name:</label>
+  <input type="text" id="name" required>
+
+  <label>Type of Threat (for Police):</label>
+  <input type="text" id="threat" placeholder="e.g., Domestic violence">
+
+  <label>Medical Info (for Ambulance):</label>
+  <textarea id="medical" placeholder="e.g., asthma, diabetes, etc."></textarea>
+
+  <label>Family Contact (Phone or Email):</label>
+  <input type="text" id="family">
+
+  <button onclick="saveSettings()">Save Settings</button>
+
+  <div id="status"></div>
+
+  <script>
+    function saveSettings() {
+      const data = {
+        name: document.getElementById('name').value,
+        threat: document.getElementById('threat').value,
+        medical: document.getElementById('medical').value,
+        family: document.getElementById('family').value
+      };
+      localStorage.setItem('sosUserData', JSON.stringify(data));
+      document.getElementById('status').innerText = "✅ Settings saved successfully!";
+    }
+
+    // Auto-fill if data already exists
+    const existing = JSON.parse(localStorage.getItem('sosUserData'));
+    if (existing) {
+      document.getElementById('name').value = existing.name || '';
+      document.getElementById('threat').value = existing.threat || '';
+      document.getElementById('medical').value = existing.medical || '';
+      document.getElementById('family').value = existing.family || '';
+    }
+  </script>
+
+</body>
+</html>
