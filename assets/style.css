@@ -1,4 +1,218 @@
-/* Тестовий стиль */
+/* Basic Layout and Theme */
 body {
-  background-color: #fff;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+  color: #333;
 }
+
+header {
+  background-color: #004080;
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 2.5em;
+  margin: 0 0 10px;
+}
+
+header p {
+  font-size: 1.2em;
+  margin: 0;
+}
+
+nav {
+  text-align: center;
+  padding: 20px;
+  background-color: #e6f0ff;
+  border-bottom: 2px solid #cce0ff;
+}
+
+nav a {
+  margin: 0 10px;
+  color: #004080;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 6px 12px;
+  border-radius: 4px;
+}
+
+nav a:hover {
+  background-color: #004080;
+  color: white;
+}
+
+/* Main Content Area */
+main {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+section {
+  margin-bottom: 60px;
+}
+
+section h2 {
+  color: #004080;
+  font-size: 1.8em;
+}
+
+/* Call-to-Action Box */
+.cta {
+  background-color: #004080;
+  color: white;
+  padding: 30px;
+  text-align: center;
+  border-radius: 8px;
+}
+
+/* Button Styles */
+.button {
+  background-color: white;
+  color: #004080;
+  padding: 10px 20px;
+  display: inline-block;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 8px;
+  border: 2px solid #004080;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #004080;
+  color: white;
+}
+
+/* Custom Blue Back Button */
+.back-button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007BFF;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.back-button:hover {
+  background-color: #0056b3;
+}
+
+/* List Style */
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+ul li {
+  padding: 5px 0;
+}
+
+/* Footer */
+footer {
+  background-color: #f1f1f1;
+  color: #666;
+  text-align: center;
+  padding: 20px;
+  border-top: 1px solid #ccc;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 1.8em;
+  }
+
+  nav a {
+    display: block;
+    margin: 10px 0;
+  }
+}
+
+/* Centered Content Box for Sections */
+.content-box {
+  background-color: #e0f0ff;
+  padding: 2rem;
+  border-radius: 16px;
+  max-width: 900px;
+  margin: auto;
+}
+
+/* Action Buttons (Join, Support, etc.) */
+.action-button {
+  display: inline-block;
+  margin: 10px 8px 0 0;
+  padding: 10px 18px;
+  background-color: #007BFF;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.action-button:hover {
+  background-color: #0056b3;
+}
+/* Footer Buttons and Links */
+.footer-link {
+  color: #ffdd57;
+  text-decoration: underline;
+}
+
+.footer-link:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.footer-button {
+  background-color: #0066cc;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  border: 2px solid white;
+  display: inline-block;
+  margin-top: 10px;
+  transition: background-color 0.3s;
+}
+
+.footer-button:hover {
+  background-color: #004080;
+}
+/* Анімація появи секцій */
+.hidden {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}/* BBS-Core button style */
+.bbs-button {
+  background-color: #004080;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1em;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.bbs-button:hover {
+  background-color: #0066cc;
+}
+
+
