@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SOS Module – BBS Core</title>
+  <link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+  <header>
+    <h1>BBS-Core – SOS Emergency Module</h1>
+  
+  <main>
+    <section>
+      <h2>About the SOS Module</h2>
+      <p>
+        The SOS module is one of the most critical systems developed by BBS-Core. It allows people to instantly call for help — contacting family, emergency services, or police — even in a state of panic or danger. <br><br>
+        The system also includes mobile app support, sound alerts, and automatic location sharing. It is especially useful for people with speech or hearing difficulties.
+      </p>
+
+      <video controls width="100%">
+        <source src="../assets/videos/sos_demo.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </section>
+
+    <section>
+      <h3>Current Status</h3>
+      <p>
+        ✅ MVP is almost ready. Next steps include full mobile adaptation, public launch, and legal registration for emergency response integration.
+      </p>
+    </section>
+
+    <div class="button-group">
+      <button onclick="location.href='../projects/projects_showcase.html'" class="bbs-button">
+        ← Back to Projects
+      </button>
+      <button onclick="location.href='../index.html'" class="bbs-button">
+         Go to Home
+      </button>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 BBS-Core. All rights reserved.</p>
+    <p style="font-size: 0.8em; opacity: 0.6;">Protected by logical and ethical system protocols.</p>
+    <script>
+      document.addEventListener("contextmenu", e => e.preventDefault());
+      document.addEventListener("keydown", e => {
+        if (e.ctrlKey && (e.key === 'u' || e.key === 's')) e.preventDefault();
+      });
+    </script>
+  </footer>
+</body>
+</html>
