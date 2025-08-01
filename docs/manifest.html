@@ -1,67 +1,169 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Manifesto — Big Begins Small (BBS)</title>
-  <link rel="stylesheet" href="../../assets/style.css" />
+  <title>Маніфест | BBS</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: #f0f0f0;
+    }
+
+    header {
+      background-color: rgba(0, 0, 0, 0.8);
+      padding: 1rem 2rem;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    nav {
+      margin-top: 0.5rem;
+    }
+
+    nav a {
+      color: #64ffda;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 3rem auto;
+      background-color: rgba(255, 255, 255, 0.05);
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 2.2rem;
+      color: #64ffda;
+    }
+
+    p {
+      line-height: 1.8;
+      font-size: 1.1rem;
+      text-align: center;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 0.8rem 1.5rem;
+      background-color: #64ffda;
+      color: #0f2027;
+      font-weight: bold;
+      border: none;
+      border-radius: 2rem;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+
+    .button:hover {
+      background-color: #00bfa5;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 0;
+      color: #aaa;
+    }
+
+    .popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      background: #222;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+      transition: transform 0.3s ease;
+      z-index: 10;
+      color: #fff;
+    }
+
+    .popup.active {
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    .popup button {
+      margin-top: 1rem;
+      background: #64ffda;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 1rem;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    #overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 5;
+      display: none;
+    }
+  </style>
 </head>
 <body>
-  <div class="lang-switch" style="position:absolute; top:10px; right:20px;">
-    <button onclick="setLang('en')" class="button">EN</button>
-    <button onclick="setLang('uk')" class="button">UK</button>
-  </div>
-
   <header>
-    <h1 id="title">Big Begins Small (BBS)</h1>
-    <p id="slogan">Everything great begins with something small.<br>One word. One step. One act. One world transformed.</p>
+    <h1>BBS — Маніфест</h1>
+    <nav>
+      <a href="index.html">Головна</a>
+      <a href="#" id="openPopup">Про нас</a>
+      <a href="support.html">Підтримка</a>
+    </nav>
   </header>
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="projects/directions.html">Ideological Directions</a>
-    <a href="projects/join.html">Join</a>
-    <a href="projects/support.html">Support</a>
-  </nav>
+  <div class="container">
+    <h2>Наш Маніфест</h2>
+    <p>
+      Ми віримо, що справжні зміни починаються з усвідомлення, а не з конфлікту.<br>
+      З дії, а не з ідеології.<br>
+      Наш маніфест — це заклик до тих, хто глибоко відчуває, що кращий світ можливий.<br>
+      Світ, у якому людяність важливіша за системи.<br>
+      Мораль — понад маніпуляцію. Знання — понад невігластво.<br>
+      Ми тут, щоб побудувати цей світ — разом, крок за кроком.
+    </p>
+    <a href="index.html" class="button">Повернутися на головну</a>
+  </div>
 
-  <main>
-    <section id="manifest" class="content-box">
-      <h2 id="manifestTitle">Our Manifesto</h2>
-      <p id="manifestText">
-        We believe that change begins with awareness, not conflict. Action, not ideology.
-        Our manifesto is a call to those who deeply feel that a better world is possible.
-        One that values humanity above systems. Morality over manipulation. Knowledge over ignorance.
-        We are here to build this world — together, step by step.
-      </p>
-    </section>
-  </main>
+  <div id="overlay"></div>
+  <div class="popup" id="popup">
+    <h3>Про BBS</h3>
+    <p>Це система, створена серцем і розумом. Вона зростає з мрії та дії.</p>
+    <button onclick="closePopup()">Закрити</button>
+  </div>
 
   <footer>
-    <p>&copy; 2025 Big Begins Small (BBS). All rights reserved.</p>
-    <a href="index.html" class="back-button">⬅ Back to Home</a>
+    <p>&copy; 2025 BBS. Усі права захищено.</p>
   </footer>
 
   <script>
-    const translations = {
-      uk: {
-        title: "Велике починається з малого (BBS)",
-        slogan: "Все велике починається з малого.<br>Одне слово. Один крок. Одна дія. Один світ, що змінюється.",
-        manifestTitle: "Наш Маніфест",
-        manifestText: "Ми віримо, що зміни починаються зі свідомості, а не з боротьби. Із дій, а не з ідеологій. Наш маніфест — це заклик до всіх, хто глибоко відчуває: інший світ можливий. Той, що ставить людяність вище систем. Моральність вище маніпуляцій. Знання вище неуцтва. Ми тут, щоб будувати цей світ разом — крок за кроком."
-      }
-    };
+    const popup = document.getElementById('popup');
+    const overlay = document.getElementById('overlay');
+    const openPopupBtn = document.getElementById('openPopup');
 
-    function setLang(lang) {
-      if (lang === "uk") {
-        const t = translations.uk;
-        for (let key in t) {
-          if (document.getElementById(key)) {
-            document.getElementById(key).innerHTML = t[key];
-          }
-        }
-      } else {
-        location.reload();
-      }
+    openPopupBtn.addEventListener('click', () => {
+      popup.classList.add('active');
+      overlay.style.display = 'block';
+    });
+
+    function closePopup() {
+      popup.classList.remove('active');
+      overlay.style.display = 'none';
     }
   </script>
 </body>
