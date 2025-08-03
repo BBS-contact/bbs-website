@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manifesto | Big Begins Small (BBS)</title>
+  <link rel="stylesheet" href="../style/style.css" />
+  <link rel="icon" href="../img/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+
+  <header>
+    <h1 id="title">Big Begins Small (BBS)</h1>
+    <p id="slogan">Everything great begins with something small.<br>One word. One step. One act. One world transformed.</p>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="constitution_bbs.html">Constitution</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="../projects/directions.html">Directions</a></li>
+      <li><a href="../projects/join.html">Join</a></li>
+      <li><a href="../projects/support.html">Support</a></li>
+    </ul>
+  </nav>
+
+  <main class="content-box">
+    <section id="manifest">
+      <h2 id="manifestTitle">Our Manifesto</h2>
+      <p id="manifestText">
+        We believe that change begins with awareness, not conflict. Action, not ideology.
+        Our manifesto is a call to those who deeply feel that a better world is possible.
+        One that values humanity above systems. Morality over manipulation. Knowledge over ignorance.
+        We are here to build this world — together, step by step.
+      </p>
+    </section>
+
+    <div style="text-align: center; margin: 20px;">
+      <button onclick="setLang('uk')" class="button">Читати українською</button>
+      <button onclick="setLang('en')" class="button">Read in English</button>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Big Begins Small (BBS). All rights reserved.</p>
+    <a href="../index.html" class="back-button">⬅ Back to Home</a>
+  </footer>
+
+  <script>
+    const translations = {
+      en: {
+        title: "Big Begins Small (BBS)",
+        slogan: "Everything great begins with something small.<br>One word. One step. One act. One world transformed.",
+        manifestTitle: "Our Manifesto",
+        manifestText: "We believe that change begins with awareness, not conflict. Action, not ideology. Our manifesto is a call to those who deeply feel that a better world is possible. One that values humanity above systems. Morality over manipulation. Knowledge over ignorance. We are here to build this world — together, step by step."
+      },
+      uk: {
+        title: "Велике починається з малого (BBS)",
+        slogan: "Все велике починається з малого.<br>Одне слово. Один крок. Одна дія. Один світ, що змінюється.",
+        manifestTitle: "Наш Маніфест",
+        manifestText: "Ми віримо, що зміни починаються зі свідомості, а не з боротьби. Із дій, а не з ідеологій. Наш маніфест — це заклик до всіх, хто глибоко відчуває: інший світ можливий. Той, що ставить людяність вище систем. Моральність вище маніпуляцій. Знання вище неуцтва. Ми тут, щоб будувати цей світ разом — крок за кроком."
+      }
+    };
+
+    function setLang(lang) {
+      const t = translations[lang];
+      for (let key in t) {
+        const el = document.getElementById(key);
+        if (el) el.innerHTML = t[key];
+      }
+    }
+  </script>
+</body>
+</html>

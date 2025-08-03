@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Join the Movement | BBS</title>
+  <link rel="stylesheet" href="style/style.css">
+  <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+  <style>
+    form {
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1em;
+    }
+    button {
+      margin-top: 20px;
+      background-color: #3498db;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1em;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #2980b9;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Join the Movement</h1>
+    <p>Become a contributor to Big Begins Small (BBS) — help shape a new future.</p>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="projects/projects.html">Projects</a></li>
+      <li><a href="downloads/programs.html">Programs</a></li>
+      <li><a href="support.html">Support</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <form id="joinForm" method="POST" action="https://script.google.com/macros/s/AKfycbxslqShm9EsmZp2SbUa74ufb8eAgTFR0mwxdnoq12xdvGC5CKXd3yBtjJa3_7FrVLzckA/exec">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="field">Choose your area of contribution</label>
+      <select id="field" name="field" required>
+        <option value="">-- Please select --</option>
+        <option value="education">Education</option>
+        <option value="health">Health & Psychology</option>
+        <option value="law">Law & Human Rights</option>
+        <option value="technology">Technology</option>
+        <option value="art">Art & Culture</option>
+        <option value="ecology">Ecology & Agriculture</option>
+        <option value="finance">Ethical Finance</option>
+        <option value="other">Other</option>
+      </select>
+
+      <label for="message">Tell us about your motivation or idea</label>
+      <textarea id="message" name="message" rows="5"></textarea>
+
+      <button type="submit">Send Request</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Big Begins Small (BBS). All rights reserved.</p>
+  </footer>
+
+  <script src="leo/engine.js"></script>
+</body>
+</html>
