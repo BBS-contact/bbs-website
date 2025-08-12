@@ -1,0 +1,22 @@
+[
+  {
+    "source": "/BBS 09.08.25 (1)/bbs-new-site/index.html",
+    "destination": "/index.html",
+    "type": 308
+  },
+  {
+    "source": "/BBS 09.08.25 (1)/bbs-new-site/join.html",
+    "destination": "/index.html",
+    "type": 308
+  },
+  {
+    "source": "/BBS 09.08.25 (1)/bbs-new-site/downloads/programs.html",
+    "destination": "/downloads/programs.html",
+    "type": 308
+  },
+  {
+    "source": "/BBS-Core/downloads/programs.html",
+    "destination": "/downloads/programs.html",
+    "type": 308
+  }
+]
