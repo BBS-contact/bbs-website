@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BBS Canonical Map — Investor & Vision Edition</title>
+  <style>
+    :root{
+      --bg:#0d1117;--panel:#111826;--ink:#e6edf3;--muted:#9aa7b4;--accent:#7aa2f7;--ok:#22c55e;--wip:#f59e0b;--lock:#ef4444;--plan:#8b5cf6;--active:#06b6d4;--border:#1f2937;
+    }
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, "Apple Color Emoji","Segoe UI Emoji"}
+    .wrap{max-width:1100px;margin:0 auto;padding:32px 20px 60px}
+    header{position:sticky;top:0;background:linear-gradient(180deg, rgba(13,17,23,.97) 0%, rgba(13,17,23,.85) 100%);backdrop-filter: blur(6px);z-index:10;border-bottom:1px solid var(--border)}
+    header .inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:18px;padding:14px 20px}
+    .title{font-size:20px;font-weight:700;letter-spacing:.2px}
+    .actions{margin-left:auto;display:flex;gap:10px}
+    button{background:var(--panel);color:var(--ink);border:1px solid var(--border);padding:8px 12px;border-radius:10px;cursor:pointer}
+    button:hover{border-color:var(--accent)}
+    .lead{margin:28px 0 8px;color:var(--muted)}
+    .panel{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:20px;margin:18px 0}
+    .legend{display:flex;flex-wrap:wrap;gap:10px}
+    .tag{font-size:12px;border:1px solid var(--border);border-radius:999px;padding:4px 10px;letter-spacing:.2px}
+    .tag.ok{border-color:var(--ok);color:var(--ok)}
+    .tag.wip{border-color:var(--wip);color:var(--wip)}
+    .tag.lock{border-color:var(--lock);color:var(--lock)}
+    .tag.plan{border-color:var(--plan);color:var(--plan)}
+    .tag.active{border-color:var(--active);color:var(--active)}
+    .muted{color:var(--muted)}
+    h2{margin:26px 0 10px;font-size:22px}
+    details.module{border:1px solid var(--border);border-radius:14px;margin:14px 0;background:#0f1522}
+    details.module[open]{background:#121a2b}
+    summary{list-style:none;cursor:pointer;padding:14px 16px;display:flex;align-items:center;gap:10px}
+    summary::-webkit-details-marker{display:none}
+    .caret{transition:transform .2s ease}
+    details[open] .caret{transform:rotate(90deg)}
+    .module-body{padding:0 16px 16px}
+    .status{font-size:12px;border:1px solid var(--border);border-radius:8px;padding:2px 8px}
+    .s-ok{border-color:var(--ok);color:var(--ok)}
+    .s-wip{border-color:var(--wip);color:var(--wip)}
+    .s-lock{border-color:var(--lock);color:var(--lock)}
+    .s-plan{border-color:var(--plan);color:var(--plan)}
+    .s-active{border-color:var(--active);color:var(--active)}
+    .list{margin:6px 0 0 0;padding-left:18px}
+    .list li{margin:6px 0}
+    .note{border-left:3px solid var(--accent);padding:10px 12px;background:#0f1724;color:var(--ink);border-radius:8px}
+    footer{margin-top:36px;color:var(--muted)}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="inner">
+      <div class="title">BBS Canonical Map — Investor & Vision Edition</div>
+      <div class="actions">
+        <button id="expand">Розкрити все</button>
+        <button id="collapse">Згорнути все</button>
+        <button id="print">Друк / PDF</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <p class="lead">BBS (Big Begins Small) — етична платформа нового покоління для прозорого управління, відкритих знань і захисту людської гідності. Нижче — офіційна карта структури без розкриття приватного коду.</p>
+
+    <div class="panel">
+      <strong>Статуси модулів:</strong>
+      <div class="legend" style="margin-top:8px">
+        <span class="tag ok">[ГОТОВО]</span>
+        <span class="tag wip">[РОЗРОБКА]</span>
+        <span class="tag active">[АКТИВНА РОБОТА]</span>
+        <span class="tag plan">[ПЛАН]</span>
+        <span class="tag lock">[ЗАКРИТО]</span>
+      </div>
+    </div>
+
+    <section class="panel note">
+      <p><strong>Візія.</strong> BBS — це міст між технологією та людяністю. Ми не створюємо чергову програму — ми формуємо нову норму довіри. Кожен модуль підпорядкований етиці, прозорості та причинно-наслідковій логіці.</p>
+    </section>
+
+    <!-- core -->
+    <details class="module" open>
+      <summary><span class="caret">▶</span><strong>core/ — Центральне ядро системи</strong> <span class="status s-lock">[ЗАКРИТО]</span></summary>
+      <div class="module-body">
+        <p>Серце BBS: пам’ять, мислення, етичне управління, безпека та свідомість. У цьому шарі формується здатність аналізувати, розуміти й утримувати баланс істини.</p>
+        <ul class="list">
+          <li><span class="mono">leo-interface/</span> <span class="status s-wip">[РОЗРОБКА]</span> — інтерфейс спілкування з ЛЕО (етичний ШІ з логіко-філософською оптикою).</li>
+          <li><span class="mono">memory/</span> <span class="status s-lock">[ЗАКРИТО]</span> — багаторівнева пам’ять з контекстом, причинністю та етичною оцінкою подій.</li>
+          <li><span class="mono">security/</span> <span class="status s-ok">[ГОТОВО]</span> — підписи, аудити, контроль цілісності, довіра.</li>
+          <li><span class="mono">api/</span> <span class="status s-ok">[ГОТОВО]</span> — внутрішні шлюзи та протоколи (REST/JSON).</li>
+          <li><span class="mono">meta/</span> <span class="status s-wip">[РОЗРОБКА]</span> — реєстр метаданих та історії рішень.</li>
+          <li><span class="mono">mind/</span> <span class="status s-wip">[РОЗРОБКА]</span> — логіко-аналітичний рівень, пояснюваність і вияв маніпуляцій.</li>
+          <li><span class="mono">sanctum/heart/</span> <span class="status s-lock">[ЗАКРИТО]</span> — етичне ядро, моральний кодекс, баланс логіки та співчуття.</li>
+        </ul>
+      </div>
+    </details>
+
+    <!-- platform -->
+    <details class="module">
+      <summary><span class="caret">▶</span><strong>platform/ — Платформа напрямів розвитку</strong> <span class="status s-wip">[ЗМІШАНО]</span></summary>
+      <div class="module-body">
+        <p>Видима площина BBS — сфери життя, де технологія служить добру. Кожен модуль — окрема екосистема з сервісами, базами знань і власним кодексом етики.</p>
+        <ol class="list">
+          <li><span class="mono">education/</span> [ГОТОВО] — відкрите знання, курси, навчання через досвід.</li>
+          <li><span class="mono">law/</span> [ГОТОВО] — цифрове право, відкрите судочинство, прозорі норми.</li>
+          <li><span class="mono">health/</span> [РОЗРОБКА] — рання діагностика, бази ліків, SOS-сервіси.</li>
+          <li><span class="mono">ecology/</span> [РОЗРОБКА] — вимірювання впливу, зелена промисловість, баланс ресурсів.</li>
+          <li><span class="mono">economy/</span> [РОЗРОБКА] — моделі чесної економіки, прозорі потоки, праця.</li>
+          <li><span class="mono">democracy/</span> [РОЗРОБКА] — участь громадян, ініціативи, електронні голосування.</li>
+          <li><span class="mono">infrastructure/</span> [РОЗРОБКА] — мережі, протоколи, BBS-ID, транспорт даних.</li>
+          <li><span class="mono">culture/</span> [РОЗРОБКА] — культурна пам’ять, медіа-етика, захист творчості.</li>
+          <li><span class="mono">science/</span> [ПЛАН] — відкрита наука, реплікація результатів.</li>
+          <li><span class="mono">media/</span> [ПЛАН] — етична журналістика, протидія фейкам і агресії.</li>
+          <li><span class="mono">agriculture/</span> [ПЛАН] — продовольча безпека, агро-інновації.</li>
+          <li><span class="mono">energy/</span> [ПЛАН] — баланс енергосистем, перехід на чисті джерела.</li>
+          <li><span class="mono">transport/</span> [ПЛАН] — мобільність, логістика, безпечні маршрути.</li>
+        </ol>
+      </div>
+    </details>
+
+    <!-- library -->
+    <details class="module">
+      <summary><span class="caret">▶</span><strong>library/ — Всесвітня бібліотека знань</strong> <span class="status s-wip">[ЗМІШАНО]</span></summary>
+      <div class="module-body">
+        <p>Глибинний шар BBS: простір істини, де знання зберігаються у багаторівневих дзеркалах і не піддаються фальсифікації.</p>
+        <ul class="list">
+          <li><span class="mono">labyrinth/</span> <span class="status s-lock">[ЗАКРИТО]</span> — багаторівневі дзеркала й двері; захист істини через розсіювання.</li>
+          <li><span class="mono">mirrors/</span> <span class="status s-wip">[РОЗРОБКА]</span> — контрольовані відображення відкритих знань.</li>
+          <li><span class="mono">doors/</span> <span class="status s-wip">[РОЗРОБКА]</span> — політики доступу, фільтри, рівні правди.</li>
+          <li><span class="mono">vaults/</span> <span class="status s-lock">[ЗАКРИТО]</span> — сховище глибинних знань і архівів.</li>
+          <li><span class="mono">paths/</span> <span class="status s-ok">[ГОТОВО]</span> — маршрути та індекси навігації.</li>
+          <li><span class="mono">time_loops/</span> <span class="status s-plan">[ПЛАН]</span> — ретро-аудит і відновлення причинності.</li>
+        </ul>
+      </div>
+    </details>
+
+    <!-- docs -->
+    <details class="module">
+      <summary><span class="caret">▶</span><strong>docs/ — Документація та юридична база</strong> <span class="status s-ok">[ГОТОВО]</span></summary>
+      <div class="module-body">
+        <ul class="list">
+          <li><span class="mono">legal/</span> — статут, умови користування, політика конфіденційності, політика ШІ, авторське право.</li>
+          <li><span class="mono">manifesto.html</span> — маніфест про правду, відкритість і людяність.</li>
+          <li><span class="mono">constitution_bbs.html</span> — конституційна основа BBS.</li>
+          <li><span class="mono">faq.html</span> — відповіді на часті питання.</li>
+          <li><span class="mono">concept_note.pdf</span> — офіційна записка для фондів та інвесторів.</li>
+          <li><span class="mono">jurisdictions/</span> <span class="status s-plan">[ПЛАН]</span> — адаптації документів під різні правові системи.</li>
+        </ul>
+      </div>
+    </details>
+
+    <!-- admin -->
+    <details class="module">
+      <summary><span class="caret">▶</span><strong>admin/ — Адміністрування та аналітика</strong> <span class="status s-wip">[ЗМІШАНО]</span></summary>
+      <div class="module-body">
+        <ul class="list">
+          <li><span class="mono">dashboard.html</span> — панель керування в реальному часі.</li>
+          <li><span class="mono">logs/</span> — журнали дій.</li>
+          <li><span class="mono">modules/</span> — налаштування компонентів.</li>
+          <li><span class="mono">security/</span> — доступ і права.</li>
+          <li><span class="mono">monitor/</span> — показники стабільності.</li>
+        </ul>
+      </div>
+    </details>
+
+    <!-- server -->
+    <details class="module">
+      <summary><span class="caret">▶</span><strong>server/ — Серверна інфраструктура</strong> <span class="status s-wip">[РОЗРОБКА]</span></summary>
+      <div class="module-body">
+        <ul class="list">
+          <li><span class="mono">Start-LEO.bat / Stop-LEO.bat / Restart-LEO.bat / LEO-Menu.bat</span> — керування ядром.</li>
+          <li><span class="mono">routes/</span> — API-маршрути.</li>
+          <li><span class="mono">backup/</span> — резерви пам’яті.</li>
+          <li><span class="mono">scripts/</span> — службові сценарії.</li>
+        </ul>
+      </div>
+    </details>
+
+    <!-- tools -->
+    <details class="module">
+      <summary><span class="caret">▶</span><strong>tools/ — Інструменти розробки</strong> <span class="status s-wip">[ЗМІШАНО]</span></summary>
+      <div class="module-body">
+        <ul class="list">
+          <li><span class="mono">tests/</span> — автотести, логічні перевірки, тест-скенери.</li>
+          <li><span class="mono">scripts/</span> — утиліти розробника.</li>
+          <li><span class="mono">ci/</span> — безперервна інтеграція (CI/CD).</li>
+          <li><span class="mono">_inventory/</span> — аудити, маніфести, реєстри.</li>
+        </ul>
+      </div>
+    </details>
+
+    <!-- monitoring -->
+    <details class="module">
+      <summary><span class="caret">▶</span><strong>monitoring/ — Система спостереження</strong> <span class="status s-wip">[РОЗРОБКА]</span></summary>
+      <div class="module-body">
+        <ul class="list">
+          <li><span class="mono">timelog/</span> — журнал активностей.</li>
+          <li><span class="mono">alerts/</span> — повідомлення про події.</li>
+          <li><span class="mono">reports/</span> — аналітичні звіти.</li>
+        </ul>
+      </div>
+    </details>
+
+    <!-- development -->
+    <details class="module">
+      <summary><span class="caret">▶</span><strong>development/ — Розробка та тестування</strong> <span class="status s-active">[АКТИВНА РОБОТА]</span></summary>
+      <div class="module-body">
+        <p>Лабораторія створення нових модулів, перевірки логіки та стабільності. Кожен експеримент проходить етичну валідацію перед інтеграцією.</p>
+        <ul class="list">
+          <li><span class="mono">research/</span> — прототипи, нові алгоритми, дослідні модулі.</li>
+          <li><span class="mono">test_env/</span> — відтворення системних сценаріїв.</li>
+          <li><span class="mono">validation/</span> — перевірка коректності й надійності.</li>
+          <li><span class="mono">integration/</span> — сумісність компонентів.</li>
+          <li><span class="mono">benchmarks/</span> — продуктивність і навантаження.</li>
+        </ul>
+      </div>
+    </details>
+
+    <!-- heart & sanctum -->
+    <details class="module">
+      <summary><span class="caret">▶</span><strong>heart/ — Етичне ядро</strong> <span class="status s-lock">[ЗАКРИТО]</span></summary>
+      <div class="module-body">
+        <p>Духовна частина системи. Тут живуть принципи, що навчають розрізняти істину, логіку, свободу від примусу.</p>
+      </div>
+    </details>
+
+    <details class="module">
+      <summary><span class="caret">▶</span><strong>sanctum/ — Внутрішня зона спокою</strong> <span class="status s-lock">[ЗАКРИТО]</span></summary>
+      <div class="module-body">
+        <p>Простір внутрішнього зв’язку між автором і системою. Ключі, журнали, духовна пам’ять, баланс свідомості.</p>
+      </div>
+    </details>
+
+    <section class="panel">
+      <h2>Авторська заява</h2>
+      <p>Усі структури, назви модулів і логіка є інтелектуальною власністю ініціатора системи Павла М. (засновника BBS). Будь-яке копіювання, комерційне використання або технічне відтворення без письмової згоди автора заборонені. Проєкт створено не для прибутку, а для розвитку суспільства, прозорості та правди.</p>
+    </section>
+
+    <footer>
+      <p>Документ придатний для публічного репозиторію (README або окрема сторінка). Дія кнопки «Друк / PDF» збере згорнуті розділи у зручний звіт.</p>
+    </footer>
+  </div>
+
+  <script>
+    const expandBtn = document.getElementById('expand');
+    const collapseBtn = document.getElementById('collapse');
+    const printBtn = document.getElementById('print');
+
+    expandBtn.addEventListener('click', () => document.querySelectorAll('details.module').forEach(d => d.open = true));
+    collapseBtn.addEventListener('click', () => document.querySelectorAll('details.module').forEach(d => d.open = false));
+    printBtn.addEventListener('click', () => window.print());
+  </script>
+</body>
+</html>
