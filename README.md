@@ -53,6 +53,8 @@ The full canonical map of BBS is divided into key layers:
 - [Canonical Map (Ukrainian)](https://leonexus.org/docs/BBS_Canonical_Map_v1.html)  
   Detailed structure, descriptions, and author’s declaration.
 
+- See our official grant proposal → [Grant_Overview_EN.md](grants/Grant_Overview_EN.md)
+
 ---
 
 ## Vision
@@ -79,3 +81,4 @@ for collaboration, grants, and strategic dialogue.
 
 Created and maintained by a Ukrainian founder.  
 © BBS — Big Begins Small. All rights reserved.
+
