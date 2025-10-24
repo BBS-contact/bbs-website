@@ -42,6 +42,7 @@ Each layer follows the *Doctrine of Balance* — ensuring that technology serves
 
 - [Comparative Analysis — Research Context](docs/BBS_Comparative_Analysis_EN.md)  
   Analytical comparison of BBS with current global AI systems and governance models.
+- [Official Grant Application Form](docs/grants/Grant_Application_Short_Form_EN.md)
 
 Together, these documents form the official research and investor package of the BBS Foundation Initiative.
 
@@ -64,5 +65,6 @@ Official domain: [https://leonexus.org](https://leonexus.org)
 ---
 
 © Big Begins Small (BBS) Initiative — Developed by Pavlo Martseniuk & LEO Core.
+
 
 
