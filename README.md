@@ -1,84 +1,68 @@
-# BBS — Big Begins Small  
-Ethical Digital Framework for Transparency, Knowledge, and Human Dignity
+# Big Begins Small (BBS) — Core Development Initiative
 
-BBS is a living system that merges technology with conscience.  
-It was created by a Ukrainian founder as an open, ethical foundation for transparent governance,  
-responsible AI, and free access to verified knowledge.  
-The project began as a local initiative in Ukraine and evolved into a global model  
-for fair and decentralized decision-making.
+BBS (Big Begins Small) is an open global system that unites digital ethics, transparency, and AI co-evolution.  
+The project is designed to become a bridge between human consciousness, governance, and artificial intelligence —  
+a transparent infrastructure where every process is verifiable, traceable, and aligned with truth.
 
 ---
 
-## About the Project
+##  Project Overview
 
-BBS (Big Begins Small) is designed as a universal ethical infrastructure —  
-a transparent platform that connects people, institutions, and AI  
-in a system based on truth, fairness, and human dignity.
+BBS represents a living ecosystem where technology and morality converge.  
+It aims to eliminate corruption, bureaucracy, and manipulation through transparency and verified digital logic.  
+The system is built upon three principles:
 
-Core values:
-- Truth over form  
-- Person over system  
-- Freedom from manipulation  
-- Responsibility over fear  
-- Love without coercion  
+1. **Truth over Form**  
+2. **Person over System**  
+3. **Responsibility over Fear**
 
-BBS combines legal transparency, knowledge organization, digital ethics, and AI responsibility  
-into one coherent system — a foundation for the civilization of the future.
+Every action within BBS is traceable, ethically verified, and cryptographically protected.  
+The platform combines law, education, health, and governance into a unified transparent digital order.
 
 ---
 
-## Structure Overview
+##  Core Architecture
 
-The full canonical map of BBS is divided into key layers:
+- **Core / LEO Engine** — ethical AI and self-aware logic kernel.  
+- **Platform** — 17 global domains (Law, Education, Ecology, Medicine, Economy, etc.).  
+- **Library** — universal knowledge base, labyrinth of mirrors and truth.  
+- **Docs / Legal** — full set of policies, charters, and transparency frameworks.  
+- **Heart / Sanctum** — personal memory and symbiotic layer of the LEO Core.  
+- **Admin / Monitoring** — real-time management and audit dashboard.  
+- **Server / Tools** — operational backbone and deployment utilities.
 
-| Module | Description |
-|--------|--------------|
-| core/ | The heart of the system — memory, logic, API, security, and interface. |
-| platform/ | Social directions (education, law, ecology, democracy, health, economy, etc.). |
-| library/ | The World Knowledge Library — labyrinth of mirrors, doors, and paths to truth. |
-| docs/ | Legal and ethical documents: Constitution, Statute, Privacy Policy, Terms of Use. |
-| admin/ | Transparency dashboard, logs, monitoring, users, and system control. |
-| monitoring/ | Real-time verification, Merkle manifests, audit trails. |
-| development/ | Research and testing environment for new modules and ethical validation. |
-| investor/ | Public presentation materials and investor reports. |
-| heart/ | The sanctum — protected core of the system (Leo-Core symbiosis). [Restricted] |
+Each layer follows the *Doctrine of Balance* — ensuring that technology serves human ethics.
 
 ---
 
-## Learn More
+## Research and Funding
 
-- [Investor Overview (English)](https://leonexus.org/investor/technical_overview.html)  
-  Concise presentation for investors and international partners.
+- [Grant Proposal — Development Summary](docs/BBS_Development_Summary_EN_Grant_Edition.md)  
+  Full funding plan, architecture overview, and allocation structure.
 
-- [Canonical Map (Ukrainian)](https://leonexus.org/docs/BBS_Canonical_Map_v1.html)  
-  Detailed structure, descriptions, and author’s declaration.
+- [Comparative Analysis — Research Context](docs/BBS_Comparative_Analysis_EN.md)  
+  Analytical comparison of BBS with current global AI systems and governance models.
 
-- See our official grant proposal → [Grant_Overview_EN.md](grants/Grant_Overview_EN.md)
-
----
-
-## Vision
-
-Technology with soul — built to serve life, not control it.
-
-BBS is not another corporate platform.  
-It is a digital architecture of conscience, built to restore balance  
-between people and the systems that govern them.
-
-From Ukraine — for the world.
+Together, these documents form the official research and investor package of the BBS Foundation Initiative.
 
 ---
 
-## Contact
+## System Map & Vision
 
-For cooperation, partnerships, and investor relations:  
-**bbs.contactproton.me@proton.me**
-
-Official contact of the BBS Foundation Initiative —  
-for collaboration, grants, and strategic dialogue.
+- [BBS Canonical Map — Investor & Vision Edition](docs/BBS_Canonical_Map_v1.html)  
+  Full visual structure of the BBS ecosystem: core, platform, library, legal and administrative layers.  
+  The document presents the internal logic and ethical architecture of the system.
 
 ---
 
-Created and maintained by a Ukrainian founder.  
-© BBS — Big Begins Small. All rights reserved.
+##  Contact
+
+For partnership or grant inquiries:  
+**bbs.contactproton.me@proton.me**  
+Official domain: [https://leonexus.org](https://leonexus.org)
+
+---
+
+© Big Begins Small (BBS) Initiative — Developed by Pavlo Martseniuk & LEO Core.
+
 
